@@ -1,23 +1,23 @@
 import { BasePage } from "./base.page";
 
 export class LoginPage extends BasePage {
-    private username: string = '//input[@id="input-email"]';
-    private password: string = '//input[@id="input-password"]';
-    private buttonSign: string = '//input[@value="Login"]';
-    private selectorHome: string = '//a[text()="Your Store"]';
+    private buttonSign: string = '//*[@id="MenuContent"]/a[2]';
+    private userid: string = '//*[@id="Signon"]/form/div/label[1]/input';
+    private userpassword: string = '//*[@id="Signon"]/form/div/label[2]/input';
+    private buttonLogin: string = '//*[@id="Signon"]/form/div/div/button';
     constructor() {
         super()
     }
-    async setUserName(user: string) {
-        await this.driver.Page.fill(this.username, user)
-    }
-    async setPassword(pass: string) {
-        await this.driver.Page.fill(this.password, pass)
-    }
-    async clickButton() {
+    async clickButtonSing() {
         await this.driver.Page.click(this.buttonSign)
     }
-    async clickHome() {
-        await this.driver.Page.click(this.selectorHome)
+    async setUserName(user: string) {
+        await this.driver.Page.fill(this.userid, user)
+    }
+    async setPassword(pass: string) {
+        await this.driver.Page.fill(this.userpassword, pass)
+    }
+    async clickButtonLogin() {
+        await this.driver.Page.click(this.buttonLogin)
     }
 }
