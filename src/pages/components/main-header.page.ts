@@ -1,4 +1,4 @@
-import { BasePage } from "../base.page";
+/*import { BasePage } from "../base.page";
 
 
 class MainHeaderPage extends BasePage {
@@ -16,4 +16,4 @@ class MainHeaderPage extends BasePage {
     }
 }
 
-export const mainHeader = new MainHeaderPage();
+export const mainHeader = new MainHeaderPage();*/
