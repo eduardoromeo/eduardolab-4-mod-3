@@ -1,36 +1,28 @@
-// import { driverInstance } from "../src/core/driver";
 import { driverInstance } from "../src/core/driver";
-import { LoginPage } from "../src/pages/login.page";
+import { LoginPage } from "../src/pages/login.page"
 
-describe('Feature Login SauceDemo', () => {
-    let loginPage: LoginPage;
+describe.skip('Login from TestingShop', () => {
+    let loginPage: LoginPage
+    beforeAll(async () => {
 
-    beforeAll(async () => {              
-        await driverInstance.startDriver();
-        loginPage = new LoginPage();  
-        // loginPage = new LoginPage();
-    }, 30000);
-
+        await driverInstance.startDriver()
+        loginPage = new LoginPage();
+    })
     afterAll(async () => {
-        //await driverInstance.closeDriver();
-    });
 
+    })
     it('Go To Page', async () => {
-        await loginPage.navigateTo('https://www.saucedemo.com/');
+        await loginPage.navigateTo('https://jpetstore.aspectran.com/account/signonForm');
     });
 
     it('Sets Username', async () => {
-        //await loginPage.Login('standard_user', 'secret_sauce');
-        await loginPage.setUsername('standard_user');
+        await loginPage.setUserName('j2ee');
     });
 
     it('Sets Password', async () => {
-        //await loginPage.Login('standard_user', 'secret_sauce');
-        await loginPage.setPassword('secret_sauce');
+        await loginPage.setPassword('123');
     });
-
     it('Clicks login Button', async () => {
-        //await loginPage.Login('standard_user', 'secret_sauce');
-        await loginPage.clickButton();
+        await loginPage.clickButtonLogin();
     });
-});
+})

@@ -1,35 +1,23 @@
 import { BasePage } from "./base.page";
 
 export class LoginPage extends BasePage {
-    // Locators
-    private username: string = '#user-name';
-    private password: string = '#password';
-    private loginButton: string = '#login-button';
-
-    constructor(){
-        super();
+    private username: string = '//input[@id="input-email"]';
+    private password: string = '//input[@id="input-password"]';
+    private buttonSign: string = '//input[@value="Login"]';
+    private selectorHome: string = '//a[text()="Your Store"]';
+    constructor() {
+        super()
     }
-
-    async setUsername(text: string) {
-        //this.driver.startDriver();
-
-        // ElementAction.setText(locator, text)
-        await this.driver.Page.fill(this.username, text);
+    async setUserName(user: string) {
+        await this.driver.Page.fill(this.username, user)
     }
-
-    async setPassword(text: string) {
-        await this.driver.Page.fill(this.password, text);
+    async setPassword(pass: string) {
+        await this.driver.Page.fill(this.password, pass)
     }
-
     async clickButton() {
-        // page.click(locator); 
-        await this.driver.Page.click(this.loginButton);
+        await this.driver.Page.click(this.buttonSign)
     }
-
-    async Login(username: string, password: string) {
-        await this.driver.Page.fill(this.username, username);
-        await this.driver.Page.fill(this.password, password);
-        await this.driver.Page.click(this.loginButton);
-        //await this.driver.Page.waitForTimeout(10000);
+    async clickHome() {
+        await this.driver.Page.click(this.selectorHome)
     }
 }
