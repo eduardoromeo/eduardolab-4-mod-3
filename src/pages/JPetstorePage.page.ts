@@ -1,16 +1,16 @@
 import { BasePage } from "./base.page";
 
 class JPetstorePage extends BasePage {
-    private buttonFish = '//*[@id="QuickLinks"]/a[1]'
-    private buttonSelectFish ='//*[@id="Catalog"]/table/tbody/tr[2]/td[1]/a'
-    private buttonAddCardFish = '//*[@id="Catalog"]/table/tbody/tr[2]/td[5]/a'
-    private buttonReturntoMainMenu = '//*[@id="BackLink"]/a'
+    private buttonFish = '//div[@id='QuickLinks']/a'
+    private buttonSelectFish ='//div[@id='Catalog']/table/tbody/tr[2]/td/a'
+    private buttonAddCardFish = '//div[@id='Catalog']/table/tbody/tr[2]/td[5]/a'
+    private buttonReturntoMainMenu = '//a[contains(text(),'Return to Main Menu')]'
 
     constructor() {
         super()
     }
     async selectItem(idItem: number) {
-        let selectorItem = '//*[@id="Catalog"]/table/tbody/tr[2]/td[1]/a'
+        let selectorItem = '//div[@id='Catalog']/table/tbody/tr[2]/td/a'
         console.log(selectorItem)
         await this.driver.Page.click(selectorItem)
     }
